@@ -16,7 +16,13 @@ connectDB();
 const app = express();
 
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://radhahotelbooking.netlify.app', // Replace with your frontend's URL
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+  credentials: true,
+}));
+
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
